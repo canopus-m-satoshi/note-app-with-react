@@ -3,12 +3,14 @@ import Main from './components/Main'
 import Sidebar from './components/Sidebar'
 import { Notes } from './types'
 
+import { v4 as uuidv4 } from 'uuid'
+
 function App() {
   const [notes, setNotes] = useState<Array<Notes>>([])
 
   const onAddNote = () => {
     const newNote: Notes = {
-      id: Date.now(),
+      id: uuidv4(),
       title: 'test',
       content:
         'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, quam pariatur? Ullam maiores quisquam consequatur sunt dolorem dignissimos sint. Vero saepe cupiditate eius autem repellat sunt quam eaque officiis itaque.',
