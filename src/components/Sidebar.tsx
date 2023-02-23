@@ -1,9 +1,15 @@
-const Sidebar = () => {
+type Props = {
+  onAddNote: () => void
+}
+
+const Sidebar: React.FC<Props> = ({ onAddNote }) => {
   return (
     <div className="border-r  h-full w-44 py-2">
       <div className="flex items-center justify-between p-2">
         <h1>Note</h1>
-        <button className="btn btn-active">Add</button>
+        <button className="btn btn-active" onClick={onAddNote}>
+          Add
+        </button>
       </div>
       <div className="h-[calc(100vw+78px)] overflow-y-scroll mt-2 pl-2">
         <div className="hover:opacity-40 duration-300 cursor-pointer">
