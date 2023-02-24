@@ -20,9 +20,21 @@ function App() {
     setNotes([...notes, newNote])
   }
 
+  const onDeleteNote = (id: string) => {
+    const filterNote = notes.filter((note) => {
+      return note.id !== id
+    })
+
+    setNotes(filterNote)
+  }
+
   return (
     <div className="App bg-blue-50 w-full h-screen overflow-hidden flex">
-      <Sidebar onAddNote={onAddNote} notes={notes} />
+      <Sidebar
+        onAddNote={onAddNote}
+        onDeleteNote={onDeleteNote}
+        notes={notes}
+      />
       <Main />
     </div>
   )
