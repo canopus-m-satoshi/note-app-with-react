@@ -7,13 +7,13 @@ import { v4 as uuidv4 } from 'uuid'
 
 function App() {
   const [notes, setNotes] = useState<Array<Notes>>([])
+  const [activeNote, setActiveNote] = useState<boolean | string>(false)
 
   const onAddNote = () => {
     const newNote: Notes = {
       id: uuidv4(),
       title: 'test',
-      content:
-        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, quam pariatur? Ullam maiores quisquam consequatur sunt dolorem dignissimos sint. Vero saepe cupiditate eius autem repellat sunt quam eaque officiis itaque.',
+      content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit.',
       modDate: Date.now(),
     }
 
@@ -33,6 +33,8 @@ function App() {
       <Sidebar
         onAddNote={onAddNote}
         onDeleteNote={onDeleteNote}
+        activeNote={activeNote}
+        setActiveNote={setActiveNote}
         notes={notes}
       />
       <Main />
